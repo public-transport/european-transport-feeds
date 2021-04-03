@@ -9,15 +9,15 @@ jobs:
     - name: Checkout main
       uses: actions/checkout@v2
 
-    - name: Build container image
-      # we take the github repository name ($GITHUB_REPOSITORY also contains the user, so we slice it at the '/') and append the head of the commit hash
-      run: docker build -t publictransport/$(echo $GITHUB_REPOSITORY | cut -d'/' -f2 -):$(echo $GITHUB_SHA | head -c7) .
-
     - name: Docker Login
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_ACCESS_TOKEN: ${{ secrets.DOCKER_ACCESS_TOKEN }}
       run: echo $DOCKER_ACCESS_TOKEN | docker login -u $DOCKER_USERNAME --password-stdin
+
+    - name: Build container image
+      # we take the github repository name ($GITHUB_REPOSITORY also contains the user, so we slice it at the '/') and append the head of the commit hash
+      run: docker build -t publictransport/$(echo $GITHUB_REPOSITORY | cut -d'/' -f2 -):$(echo $GITHUB_SHA | head -c7) .
 
     - name: Push image to Docker Hub
       run: docker push publictransport/$(echo $GITHUB_REPOSITORY | cut -d'/' -f2 -):$(echo $GITHUB_SHA | head -c7)
