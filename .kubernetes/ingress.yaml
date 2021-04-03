@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: european-transport-feeds-ingress
+  namespace: juliuste
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "certificate-issuer"
+spec:
+  tls:
+  - hosts:
+    - eu.data.public-transport.earth
+    secretName: european-transport-feeds-tls
+  rules:
+  - host: eu.data.public-transport.earth
+    http:
+      paths:
+      - backend:
+          serviceName: european-transport-feeds
+          servicePort: 80

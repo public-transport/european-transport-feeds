@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: european-transport-feeds
+  namespace: juliuste
+spec:
+  selector:
+    matchLabels:
+      app: european-transport-feeds
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: european-transport-feeds
+    spec:
+      containers:
+      - name: european-transport-feeds
+        image: <IMAGE>
+        env:
+        - name: PORT
+          value: "3000"
+        ports:
+        - containerPort: 3000
