@@ -1,0 +1,2 @@
+{"countryIso": "de", "feedUrl": "https://de.data.public-transport.earth/gtfs-germany.zip", "license": "CC-BY 4.0", "attribution": "DELFI/opendata-oepnv.de", "infoUrl": "https://www.opendata-oepnv.de/ht/de/organisation/delfi/startseite?tx_vrrkit_view%5Bdataset_name%5D=deutschlandweite-sollfahrplandaten-gtfs&tx_vrrkit_view%5Baction%5D=details&tx_vrrkit_view%5Bcontroller%5D=View"}
+{"countryIso": "lt", "feedUrl": "https://www.visimarsrutai.lt/gtfs/gtfs_all.zip", "license": "Unknown", "attribution": "visimarsrutai.lt", "infoUrl": "https://www.visimarsrutai.lt/gtfs/"}

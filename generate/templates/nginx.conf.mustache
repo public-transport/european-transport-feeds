@@ -1,0 +1,18 @@
+server {
+  listen 3000;
+  root /app;
+
+  gzip on;
+  gzip_comp_level 9;
+
+  etag on;
+
+  location / {
+    index index.html;
+  }
+
+
+  {{#feeds}}
+  rewrite /gtfs-{{countryIso}}.zip {{feedUrl}} redirect;
+  {{/feeds}}
+}
