@@ -9,18 +9,24 @@ use std::fs;
 #[serde(rename_all = "camelCase")]
 struct Feed {
     pub country_iso: String,
-    pub feed_url: String,
-    pub license: String,
+    pub license: Option<String>,
     pub attribution: String,
-    pub info_url: String,
+    pub feed_url: url::Url,
+    pub info_url: url::Url,
+    pub comment: Option<String>
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-struct FeedWithMetadata {
-    pub feed: Feed,
+struct FormattedFeed {
     pub country_flag: String,
     pub country_name: String,
+    pub country_iso: String,
+    pub license: String,
+    pub attribution: String,
+    pub feed_url: url::Url,
+    pub info_url: url::Url,
+    pub comment: String
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -36,11 +42,9 @@ struct Content {
 }
 
 fn main() {
-    let feeds_ndjson = fs::read_to_string("../feeds.ndjson").unwrap();
-    let feeds: Vec<Feed> = feeds_ndjson
-        .lines()
-        .map(|line| serde_json::from_str(&line).unwrap())
-        .collect();
+    let feeds_toml = fs::read_to_string("../feeds.toml").unwrap();
+    let feed_container: Feeds<Feed> = toml::from_str(&feeds_toml).unwrap();
+    let feeds = feed_container.feeds;
 
     let nginx_conf_template_raw = fs::read_to_string("./templates/nginx.conf.mustache").unwrap();
     let markdown_template_raw = fs::read_to_string("./templates/index.md.mustache").unwrap();
@@ -52,33 +56,39 @@ fn main() {
 
     fs::create_dir_all("./output").unwrap();
 
-    let mut nginx_conf = fs::File::create("./output/nginx.conf").unwrap();
-    nginx_conf_template
-        .render(
-            &mut nginx_conf,
-            &Feeds::<Feed> {
-                feeds: (&feeds).clone(),
-            },
-        )
-        .unwrap();
-
-    let mut feeds_with_metadata: Vec<FeedWithMetadata> = (&feeds)
+    let mut formatted_feeds: Vec<FormattedFeed> = (&feeds)
         .iter()
-        .map(|feed| FeedWithMetadata {
-            feed: feed.clone(),
+        .map(|feed| FormattedFeed {
             country_flag: country_emoji::code_to_flag(&feed.country_iso.to_uppercase())
                 .unwrap()
                 .to_string(),
             country_name: country_emoji::code_to_name(&feed.country_iso.to_lowercase())
                 .unwrap()
                 .to_string(),
+            country_iso: feed.country_iso.clone(),
+            license: feed.license.clone().unwrap_or("_Unknown_".to_owned()),
+            attribution: feed.attribution.clone(),
+            feed_url: feed.feed_url.clone(),
+            info_url: feed.info_url.clone(),
+            comment: feed.comment.clone().unwrap_or("".to_owned()),
         })
         .collect();
-    feeds_with_metadata.sort_by(|a, b| (&a).country_name.cmp(&b.country_name));
+
+    formatted_feeds.sort_by(|a, b| (&a).country_name.cmp(&b.country_name));
+
+    let mut nginx_conf = fs::File::create("./output/nginx.conf").unwrap();
+    nginx_conf_template
+        .render(
+            &mut nginx_conf,
+            &Feeds::<FormattedFeed> {
+                feeds: (&formatted_feeds).clone(),
+            },
+        )
+        .unwrap();
 
     let markdown_text = markdown_template
-        .render_to_string(&Feeds::<FeedWithMetadata> {
-            feeds: (&feeds_with_metadata).clone(),
+        .render_to_string(&Feeds::<FormattedFeed> {
+            feeds: (&formatted_feeds).clone(),
         })
         .unwrap();
 

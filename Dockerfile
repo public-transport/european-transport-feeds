@@ -11,7 +11,7 @@ COPY generate/Cargo.toml ./generate/
 RUN cd generate && cargo build
 
 COPY ./generate /app/generate
-COPY ./feeds.ndjson .
+COPY ./feeds.toml .
 
 RUN cd generate && cargo run
 

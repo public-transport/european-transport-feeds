@@ -1,7 +1,7 @@
 # European transport feeds
 
-| Country | Provider/Attribution | License | Original feed url | Stable feed url |
-|---------|----------------------|---------|-------------------|-----------------|
+| Country | Provider/Attribution | License | Comment | Original feed url | Stable feed url |
+|---------|----------------------|---------|---------|-------------------|-----------------|
 {{#feeds}}
-|{{countryFlag}} {{countryName}}| [{{feed.attribution}}]({{feed.infoUrl}}) | {{feed.license}} | [original url]({{feed.feedUrl}}) | [stable url](https://eu.data.public-transport.earth/gtfs-{{feed.countryIso}}.zip)
+|{{countryFlag}} {{countryName}}| [{{attribution}}]({{infoUrl}}) | {{{license}}} | {{{comment}}} | [original url]({{feedUrl}}) | [stable url](https://eu.data.public-transport.earth/gtfs-{{countryIso}}.zip)
 {{/feeds}}
