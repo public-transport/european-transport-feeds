@@ -11,13 +11,25 @@
   <!-- <link rel="icon" href="icon.png"> -->
   <!-- <meta property="og:image" content="large-image.png" /> -->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://css-pkg.github.io/style.css/site.css">
+  <link rel="stylesheet" href="https://unpkg.com/style.css@1.0.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .has-table { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+    main {
+      max-width: 46em;
+      margin: 2em auto;
+      padding: 0 1em;
+      overflow: hidden;
+      word-wrap: break-word;
+    }
+    main:first-child { margin-top: 0 !important; }
+    main:last-child { margin-bottom: 0 !important; }
+  </style>
 </head>
 <body>
 <main>
   <h1>European transport feeds</h1>
-  <section>
+  <section class="has-table">
     <table>
       <thead>
         <tr>
