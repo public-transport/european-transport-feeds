@@ -11,28 +11,51 @@
   <!-- <link rel="icon" href="icon.png"> -->
   <!-- <meta property="og:image" content="large-image.png" /> -->
 
-  <!-- taken from https://github.com/sindresorhus/github-markdown-css -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
-  <style>
-    .markdown-body {
-      box-sizing: border-box;
-      min-width: 200px;
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 45px;
-    }
-
-    @media (max-width: 767px) {
-      .markdown-body {
-        padding: 15px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm_theme_white.min.css">
 </head>
 <body>
-<article class="markdown-body">
-{{{content}}}
+<main>
+<article>
+  <h1>European transport feeds</h1>
+  <p></p>
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Provider/Attribution</th>
+          <th>License</th>
+          <th>Comment</th>
+          <th>Original feed url</th>
+          <th>Stable feed url</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#feeds}}
+        <tr>
+          <td>{{countryFlag}} {{countryName}}</td>
+          <td><a href="{{infoUrl}}">{{attribution}}</a></td>
+          <td>{{{license}}}</td>
+          <td>{{{comment}}}</td>
+          <td><a href="{{feedUrl}}">original url</a></td>
+          <td><a href="https://eu.data.public-transport.earth/gtfs-{{countryIso}}.zip">stable url</a></td>
+        </tr>
+        {{/feeds}}
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h3>Additional information</h3>
+    <p></p>
+    <ul>
+      <li><a href="https://github.com/juliuste/european-transport-feeds">This website's code on GitHub</a></li>
+      <li><a href="https://developers.google.com/transit/gtfs/reference/">GTFS specification</a></li>
+      <li><a href="https://gtfs.mfdz.de/">List of german GTFS feeds</a>, which inspired this website</li>
+      <li><a href="https://bahn.guru/impressum">Impressum/Imprint</a></li>
+    </ul>
+  </section>
 </article>
+</main>
 </body>
 </html>
