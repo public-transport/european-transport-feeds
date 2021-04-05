@@ -22,6 +22,12 @@
   """
 
 [[gtfsFeeds]]
+  countryIso = "ee"
+  attribution = "Transpordiamet"
+  feedUrl = "https://peatus.ee/gtfs/gtfs.zip"
+  infoUrl = "https://www.mnt.ee/eng/public-transportation/public-transport-information-system"
+
+[[gtfsFeeds]]
   countryIso = "ie"
   license = "CC-BY 4.0"
   attribution = "Transport for Ireland"
