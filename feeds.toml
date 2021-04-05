@@ -22,10 +22,31 @@
   """
 
 [[gtfsFeeds]]
+  countryIso = "ie"
+  license = "CC-BY 4.0"
+  attribution = "Transport for Ireland"
+  feedUrl = "https://www.transportforireland.ie/transitData/google_transit_combined.zip"
+  infoUrl = "https://www.transportforireland.ie/transitData/PT_Data.html"
+
+[[gtfsFeeds]]
   countryIso = "lt"
   attribution = "visimarsrutai.lt"
   feedUrl = "https://www.visimarsrutai.lt/gtfs/gtfs_all.zip"
   infoUrl = "https://www.visimarsrutai.lt/gtfs/"
+
+[[gtfsFeeds]]
+  countryIso = "nl"
+  license = "CC0"
+  attribution = "Nationaal Toegangspunt ITS"
+  feedUrl = "http://gtfs.openov.nl/gtfs-rt/gtfs-openov-nl.zip"
+  infoUrl = "https://nt.ndw.nu/#/settings/multimodaal-reisinformatie-overview/1"
+
+[[gtfsFeeds]]
+  countryIso = "no"
+  license = "NLOD"
+  attribution = "Entur"
+  feedUrl = "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_norway-aggregated-gtfs.zip"
+  infoUrl = "https://developer.entur.org/stops-and-timetable-data"
 
 [[netexFeeds]]
   countryIso = "de"
@@ -36,3 +57,10 @@
   comments = """
   The official feed is hidden behind a login form, so the download URL points to a community mirror, which doesn't have any official SLAs.
   """
+
+[[netexFeeds]]
+  countryIso = "no"
+  license = "NLOD"
+  attribution = "Entur"
+  feedUrl = "https://storage.googleapis.com/marduk-production/outbound/netex/rb_norway-aggregated-netex.zip"
+  infoUrl = "https://developer.entur.org/stops-and-timetable-data"
