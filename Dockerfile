@@ -1,6 +1,7 @@
 FROM rust:1-alpine AS build
 
 RUN apk add --no-cache musl-dev
+RUN rustup component add rustfmt
 
 WORKDIR /app
 
@@ -9,6 +10,7 @@ COPY generate/src ./generate/src
 COPY generate/Cargo.toml ./generate/
 
 RUN cd generate && cargo build
+RUN cd generate && cargo fmt -- --check
 
 COPY ./generate /app/generate
 COPY ./feeds.toml .
