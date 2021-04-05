@@ -29,36 +29,50 @@
 <body>
 <main>
   <h1>European transport feeds</h1>
-  <section class="has-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Country</th>
-          <th>Provider/Attribution</th>
-          <th>License</th>
-          <th>Comment</th>
-          <th>Original feed url</th>
-          <th>Stable feed url</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#feeds}}
-        <tr>
-          <td>{{countryFlag}} {{countryName}}</td>
-          <td><a href="{{infoUrl}}">{{attribution}}</a></td>
-          <td>{{{license}}}</td>
-          <td>{{{comment}}}</td>
-          <td><a href="{{feedUrl}}">original url</a></td>
-          <td><a href="https://eu.data.public-transport.earth/gtfs-{{countryIso}}.zip">stable url</a></td>
-        </tr>
-        {{/feeds}}
-      </tbody>
-    </table>
+  <p>This document contains a collection of publicly available (inter-)national data feeds for public transportation information in Europe, to facilitate application development, research and experimentation on a multi-national scale.</p>
+  <section id="motivation">
+    <h4>Motivation</h4>
+    <p>While EU member states are already required to publish datasets on so-called <em><a href="https://ec.europa.eu/transport/sites/transport/files/its-national-access-points.pdf">National Access Points</a></em> (following the EU's <a href="http://data.europa.eu/eli/reg_del/2017/1926/oj">delegated regulation 2017/1926</a>), some of these <em>NAPs</em> are hard to find or only available in one language, making it hard for non-native speakers to find the data they're interested in, including license terms. Furthermore, datasets often aren't published under stable URLs, or even hidden behind mandatory login forms. Sometimes, the local civic tech community already developed (temporary) fixes for such problems, but usually this information doesn't reach people who want to consume the data. We therefore collect all available resources on this list; you're warmly invited to <a href="https://github.com/juliuste/european-transport-feeds#contributing">contribute</a>. <i>Note that, even though this document references EU regulations several times, countries which aren't EU members are of course also in scope!</i></p>
   </section>
-  <section>
+  <section id="stable-urls">
+    <h4>Stable feed URLs</h4>
+    <p>The list below contains two different URLs for every feed: An <em>original URL</em>, as well as a <em>stable URL</em>. The latter are a convenience implemented by us, and will always redirect to the original URLs via <code>HTTP 302 Moved temporarily</code>, the reason being that official URLs sometimes change over time. With our stable URLs, you will always be forwarded to the most up-to-date endpoint without the need to change your source code. <i>Disclaimer: Keep in mind that, by using the stable URLs, you rely on our service to be always available, and we don't have any official SLAs. It might still be worth it, though – especially for non-commercial projects.</i></p>
+  </section>
+  <section id="gtfs-feeds">
+    <h3>GTFS feeds</h3>
+    <p><a href="https://developers.google.com/transit/gtfs/reference/">GTFS</a> has become the de-facto standard for scheduled public transportation data. Note however, that several EU member states don't provide official GTFS feeds, since EU relulations only require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format (many countries provide feeds in both formats, though).</p>
+    <div class="has-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Provider/Attribution</th>
+            <th>License</th>
+            <th>Comment</th>
+            <th>Original feed url</th>
+            <th>Stable feed url</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#feeds}}
+          <tr>
+            <td>{{countryFlag}} {{countryName}}</td>
+            <td><a href="{{infoUrl}}">{{attribution}}</a></td>
+            <td>{{{license}}}</td>
+            <td>{{{comment}}}</td>
+            <td><a href="{{feedUrl}}">original url</a></td>
+            <td><a href="https://eu.data.public-transport.earth/gtfs-{{countryIso}}.zip">stable url</a></td>
+          </tr>
+          {{/feeds}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section id="additional-information">
     <h3>Additional information</h3>
     <ul>
       <li><a href="https://github.com/juliuste/european-transport-feeds">This website's code on GitHub</a></li>
+      <li><a href="https://ec.europa.eu/transport/sites/transport/files/its-national-access-points.pdf">Official list of <em>National Access Points</em> for EU member states</a></li>
       <li><a href="https://developers.google.com/transit/gtfs/reference/">GTFS specification</a></li>
       <li><a href="https://gtfs.mfdz.de/">List of german GTFS feeds</a>, which inspired this website</li>
       <li><a href="https://juliustens.eu/impressum.html">Impressum (Imprint)</a></li>
