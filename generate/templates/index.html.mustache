@@ -30,16 +30,16 @@
 <main>
   <h1>European transport feeds</h1>
   <p>This document contains a collection of publicly available (inter-)national data feeds for public transportation information in Europe, to facilitate application development, research and experimentation on a multi-national scale.</p>
-  <section id="motivation">
-    <h4>Motivation</h4>
+  <section>
+    <a href="#motivation"><h4 id="motivation">Motivation</h4></a>
     <p>While EU member states are already required to publish datasets on so-called <em><a href="https://ec.europa.eu/transport/sites/transport/files/its-national-access-points.pdf">National Access Points</a></em> (following the EU's <a href="http://data.europa.eu/eli/reg_del/2017/1926/oj">delegated regulation 2017/1926</a>), some of these <em>NAPs</em> are hard to find or only available in one language, making it hard for non-native speakers to find the data they're interested in, including license terms. Furthermore, datasets often aren't published under stable URLs, or even hidden behind mandatory login forms. Sometimes, the local civic tech community already developed (temporary) fixes for such problems, but usually this information doesn't reach people who want to consume the data. We therefore collect all available resources on this list; you're warmly invited to <a href="https://github.com/juliuste/european-transport-feeds#contributing">contribute</a>. <i>Note that, even though this document references EU regulations several times, countries which aren't EU members are of course also in scope!</i></p>
   </section>
-  <section id="stable-urls">
-    <h4>Stable feed URLs</h4>
+  <section>
+    <a href="#stable-urls"><h4 id="stable-urls">Stable feed URLs</h4></a>
     <p>The list below contains two different URLs for every feed: An <em>original URL</em>, as well as a <em>stable URL</em>. The latter are a convenience implemented by us, and will always redirect to the original URLs via <code>HTTP 302 Moved temporarily</code>, the reason being that official URLs sometimes change over time. With our stable URLs, you will always be forwarded to the most up-to-date endpoint without the need to change your source code. <i>Disclaimer: Keep in mind that, by using the stable URLs, you rely on our service to be always available, and we don't have any official SLAs. It might still be worth it, though – especially for non-commercial projects.</i></p>
   </section>
-  <section id="gtfs-feeds">
-    <h3>GTFS feeds</h3>
+  <section>
+    <a href="#gtfs-feeds"><h3 id="gtfs-feeds">GTFS feeds</h3></a>
     <p><a href="https://developers.google.com/transit/gtfs/reference/">GTFS</a> has become the de-facto standard for scheduled public transportation data. Note however, that several EU member states don't provide official GTFS feeds, since EU relulations only require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format (many countries provide feeds in both formats, though).</p>
     <div class="has-table">
       <table>
@@ -67,10 +67,10 @@
         </tbody>
       </table>
     </div>
-    <p><i>*When using stable URLs, please make sure to copy directly from this table, e.g. by right-clicking and selecting "copy link address".</i></p>
+    <p><small>*When using stable URLs, please make sure to copy directly from this table, e.g. by right-clicking and selecting "copy link address".</small></p>
   </section>
-  <section id="netex-feeds">
-    <h3>NETEX feeds</h3>
+  <section>
+    <a href="#netex-feeds"><h3 id="netex-feeds">NETEX feeds</h3></a>
     <p>EU relulations require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format. GTFS is the more widely adopted standard, and should probably be given preference, if possible. Some countries only release NeTEx feeds, however. Furthermore, some NeTEx feeds include more information than the corresponding GTFS feeds. Also note that the NeTEx standard is relatively complex and broad, so countries use different subsets (<em>profiles</em>) of the standard.</p>
     <div class="has-table">
       <table>
@@ -98,10 +98,10 @@
         </tbody>
       </table>
     </div>
-    <p><i>*When using stable URLs, please make sure to copy directly from this table, e.g. by right-clicking and selecting "copy link address".</i></p>
+    <p><small>*When using stable URLs, please make sure to copy directly from this table, e.g. by right-clicking and selecting "copy link address".</small></p>
   </section>
-  <section id="additional-information">
-    <h3>Additional information</h3>
+  <section>
+    <a href="#additional-information"><h3 id="additional-information">Additional information</h3></a>
     <ul>
       <li><a href="https://github.com/juliuste/european-transport-feeds">This website's code on GitHub</a></li>
       <li><a href="https://ec.europa.eu/transport/sites/transport/files/its-national-access-points.pdf">Official list of <em>National Access Points</em> for EU member states</a></li>
