@@ -10,7 +10,7 @@ struct Feed {
     pub attribution: String,
     pub feed_url: url::Url,
     pub info_url: url::Url,
-    pub comments: Option<String>
+    pub comments: Option<String>,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -23,7 +23,7 @@ struct FormattedFeed {
     pub attribution: String,
     pub feed_url: url::Url,
     pub info_url: url::Url,
-    pub comments: String
+    pub comments: String,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -70,6 +70,19 @@ fn main() {
 
     formatted_gtfs_feeds.sort_by(|a, b| (&a).country_name.cmp(&b.country_name));
     formatted_netex_feeds.sort_by(|a, b| (&a).country_name.cmp(&b.country_name));
+
+    let gtfs_count_before_dedup = formatted_gtfs_feeds.len();
+    let netex_count_before_dedup = formatted_netex_feeds.len();
+
+    formatted_gtfs_feeds.dedup_by(|a, b| a.country_name == b.country_name);
+    formatted_netex_feeds.dedup_by(|a, b| a.country_name == b.country_name);
+
+    if gtfs_count_before_dedup != formatted_gtfs_feeds.len() {
+        panic!("multiple gtfs feeds found for the same country")
+    }
+    if netex_count_before_dedup != formatted_netex_feeds.len() {
+        panic!("multiple netex feeds found for the same country")
+    }
 
     let mut nginx_conf = fs::File::create("./output/nginx.conf").unwrap();
     nginx_conf_template
