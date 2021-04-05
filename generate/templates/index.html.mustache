@@ -29,18 +29,18 @@
 <body>
 <main>
   <h1>European transport feeds</h1>
-  <p>This document contains a collection of publicly available (inter-)national data feeds for public transportation information in Europe, to facilitate application development, research and experimentation on a multi-national scale.</p>
+  <p>This document contains a collection of openly available data feeds for public transportation information in Europe, to facilitate application development, research and experimentation on a multi-national scale.</p>
   <section>
     <a href="#motivation"><h4 id="motivation">Motivation</h4></a>
-    <p>While EU member states are already required to publish datasets on so-called <em><a href="https://ec.europa.eu/transport/sites/transport/files/its-national-access-points.pdf">National Access Points</a></em> (following the EU's <a href="http://data.europa.eu/eli/reg_del/2017/1926/oj">delegated regulation 2017/1926</a>), some of these <em>NAPs</em> are hard to find or only available in one language, making it hard for non-native speakers to find the data they're interested in, including license terms. Furthermore, datasets often aren't published under stable URLs, or even hidden behind mandatory login forms. Sometimes, the local civic tech community already developed (temporary) fixes for such problems, but usually this information doesn't reach people who want to consume the data. We therefore collect all available resources on this list; you're warmly invited to <a href="https://github.com/juliuste/european-transport-feeds#contributing">contribute</a>. <i>Note that, even though this document references EU regulations several times, countries which aren't EU members are of course also in scope!</i></p>
+    <p>While EU member states are already required to publish datasets on so-called <em><a href="https://ec.europa.eu/transport/sites/transport/files/its-national-access-points.pdf">National Access Points</a></em> (following the EU's <a href="http://data.europa.eu/eli/reg_del/2017/1926/oj">delegated regulation 2017/1926</a>), many of these <em>NAPs</em> are not easy to discover and only available in a single language, making it hard for non-native speakers to find and understand the data they're interested in, as well as the corresponding license terms. Furthermore, datasets often aren't published under stable URLs, and/or hidden behind mandatory login forms. In some of these cases, the community already developed workarounds, but this information usually doesn't reach people who just want to consume the data. We therefore collect all available resources on this website, you're warmly invited to <a href="https://github.com/juliuste/european-transport-feeds#contributing">contribute</a>. <i>Note that, even though this document references EU regulations several times, countries which aren't EU members are also in scope!</i></p>
   </section>
   <section>
     <a href="#stable-urls"><h4 id="stable-urls">Stable feed URLs</h4></a>
-    <p>The list below contains two different URLs for every feed: An <em>original URL</em>, as well as a <em>stable URL</em>. The latter are a convenience implemented by us, and will always redirect to the original URLs via <code>HTTP 302 Moved temporarily</code>, the reason being that official URLs sometimes change over time. With our stable URLs, you will always be forwarded to the most up-to-date endpoint without the need to change your source code. <i>Disclaimer: Keep in mind that, by using the stable URLs, you rely on our service to be always available, and we don't have any official SLAs. It might still be worth it, though – especially for non-commercial projects.</i></p>
+    <p>The list below contains two different URLs for every feed: An <em>original URL</em>, as well as a <em>stable URL</em>. The latter are a convenience implemented by us, which will always redirect to the original URLs via <code>HTTP 302 Moved Temporarily</code>. This allows you to automatically use the most up-to-date endpoints without needing to update your source code if the original URLs change at some point. <i>Disclaimer: Keep in mind that, by using the stable URLs, you rely on our service to always be available, and we don't have any official SLAs.</i></p>
   </section>
   <section>
     <a href="#gtfs-feeds"><h3 id="gtfs-feeds">GTFS feeds</h3></a>
-    <p><a href="https://developers.google.com/transit/gtfs/reference/">GTFS</a> has become the de-facto standard for scheduled public transportation data. Note however, that several EU member states don't provide official GTFS feeds, since EU relulations only require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format (many countries provide feeds in both formats, though).</p>
+    <p><a href="https://developers.google.com/transit/gtfs/reference/">GTFS</a> has become the de-facto standard for scheduled public transportation data. Note that several EU member states don't provide official GTFS feeds, since EU relulations only require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format (many countries provide feeds in both formats, though).</p>
     <div class="has-table">
       <table>
         <thead>
@@ -71,7 +71,7 @@
   </section>
   <section>
     <a href="#netex-feeds"><h3 id="netex-feeds">NETEX feeds</h3></a>
-    <p>EU relulations require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format. GTFS is the more widely adopted standard, and should probably be given preference, if possible. Some countries only release NeTEx feeds, however. Furthermore, some NeTEx feeds include more information than the corresponding GTFS feeds. Also note that the NeTEx standard is relatively complex and broad, so countries use different subsets (<em>profiles</em>) of the standard.</p>
+    <p>EU relulations require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format. GTFS is more widely adopted, and should probably be given preference, if possible. However, some countries only release NeTEx feeds, and even for countries that release both, NeTEx feeds sometimes include more information than their GTFS counterparts. Also note that the NeTEx standard is relatively complex and broad, so countries use different subsets (<em>profiles</em>).</p>
     <div class="has-table">
       <table>
         <thead>
