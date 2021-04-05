@@ -1,3 +1,8 @@
+# This document is released as CC-0. By contributing, you dedicate your work to
+# the public domain by waiving all of your rights to the work worldwide under
+# copyright law, including all related and neighboring rights, to the extent
+# allowed by law
+
 # fields (identical for gtfsFeeds and netexFeeds):
 # countryIso (required) - ISO 3166-1 alpha-2 country code, e.g. "fr", "de", …
 # license (optional) - license abbreviation, e.g. "CC0", "CC-BY 4.0", …
