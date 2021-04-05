@@ -12,6 +12,9 @@
   attribution = "DELFI/opendata-oepnv.de"
   feedUrl = "https://de.data.public-transport.earth/gtfs-germany.zip"
   infoUrl = "https://www.opendata-oepnv.de/ht/de/organisation/delfi/startseite?tx_vrrkit_view%5Bdataset_name%5D=deutschlandweite-sollfahrplandaten-gtfs&tx_vrrkit_view%5Baction%5D=details&tx_vrrkit_view%5Bcontroller%5D=View"
+  comments = """
+  Unfortunately, this feed only covers ~75% of all public transportation (as of 4/2020), mainly because some regional providers are still not included. If this is insufficient for you, consider using the german NETEX feed, which has a higher coverage, or manually combine <a href="https://gtfs.mfdz.de/">available regional feeds</a>. Furthermore, the official feed is hidden behind a login form, so the download URL points to a community mirror, which doesn't have any official SLAs.
+  """
 
 [[gtfsFeeds]]
   countryIso = "lt"
@@ -25,3 +28,6 @@
   attribution = "DELFI/opendata-oepnv.de"
   feedUrl = "https://de.data.public-transport.earth/netex-germany.zip"
   infoUrl = "https://www.opendata-oepnv.de/ht/de/organisation/delfi/startseite?tx_vrrkit_view%5Bdataset_name%5D=deutschlandweite-sollfahrplandaten&tx_vrrkit_view%5Bdataset_formats%5D%5B0%5D=ZIP&tx_vrrkit_view%5Baction%5D=details&tx_vrrkit_view%5Bcontroller%5D=View"
+  comments = """
+  The official feed is hidden behind a login form, so the download URL points to a community mirror, which doesn't have any official SLAs.
+  """

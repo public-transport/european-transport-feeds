@@ -3,6 +3,7 @@ use std::fs;
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+#[serde(deny_unknown_fields)]
 struct Feed {
     pub country_iso: String,
     pub license: Option<String>,
