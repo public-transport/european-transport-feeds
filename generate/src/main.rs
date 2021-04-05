@@ -9,7 +9,7 @@ struct Feed {
     pub attribution: String,
     pub feed_url: url::Url,
     pub info_url: url::Url,
-    pub comment: Option<String>
+    pub comments: Option<String>
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -22,29 +22,18 @@ struct FormattedFeed {
     pub attribution: String,
     pub feed_url: url::Url,
     pub info_url: url::Url,
-    pub comment: String
+    pub comments: String
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct Feeds<F> {
-    pub feeds: Vec<F>,
+    pub gtfs_feeds: Vec<F>,
+    pub netex_feeds: Vec<F>,
 }
 
-fn main() {
-    let feeds_toml = fs::read_to_string("../feeds.toml").unwrap();
-    let feed_container: Feeds<Feed> = toml::from_str(&feeds_toml).unwrap();
-    let feeds = feed_container.feeds;
-
-    let nginx_conf_template_raw = fs::read_to_string("./templates/nginx.conf.mustache").unwrap();
-    let html_template_raw = fs::read_to_string("./templates/index.html.mustache").unwrap();
-
-    let nginx_conf_template = mustache::compile_str(&nginx_conf_template_raw).unwrap();
-    let html_template = mustache::compile_str(&html_template_raw).unwrap();
-
-    fs::create_dir_all("./output").unwrap();
-
-    let mut formatted_feeds: Vec<FormattedFeed> = (&feeds)
+fn format_feeds(feeds: &Vec<Feed>) -> Vec<FormattedFeed> {
+    return feeds
         .iter()
         .map(|feed| FormattedFeed {
             country_flag: country_emoji::code_to_flag(&feed.country_iso.to_uppercase())
@@ -58,18 +47,36 @@ fn main() {
             attribution: feed.attribution.clone(),
             feed_url: feed.feed_url.clone(),
             info_url: feed.info_url.clone(),
-            comment: feed.comment.clone().unwrap_or("".to_owned()),
+            comments: feed.comments.clone().unwrap_or("–".to_owned()),
         })
         .collect();
+}
 
-    formatted_feeds.sort_by(|a, b| (&a).country_name.cmp(&b.country_name));
+fn main() {
+    let feeds_toml = fs::read_to_string("../feeds.toml").unwrap();
+    let feed_container: Feeds<Feed> = toml::from_str(&feeds_toml).unwrap();
+
+    let nginx_conf_template_raw = fs::read_to_string("./templates/nginx.conf.mustache").unwrap();
+    let html_template_raw = fs::read_to_string("./templates/index.html.mustache").unwrap();
+
+    let nginx_conf_template = mustache::compile_str(&nginx_conf_template_raw).unwrap();
+    let html_template = mustache::compile_str(&html_template_raw).unwrap();
+
+    fs::create_dir_all("./output").unwrap();
+
+    let mut formatted_gtfs_feeds = format_feeds(&feed_container.gtfs_feeds);
+    let mut formatted_netex_feeds = format_feeds(&feed_container.netex_feeds);
+
+    formatted_gtfs_feeds.sort_by(|a, b| (&a).country_name.cmp(&b.country_name));
+    formatted_netex_feeds.sort_by(|a, b| (&a).country_name.cmp(&b.country_name));
 
     let mut nginx_conf = fs::File::create("./output/nginx.conf").unwrap();
     nginx_conf_template
         .render(
             &mut nginx_conf,
             &Feeds::<FormattedFeed> {
-                feeds: (&formatted_feeds).clone(),
+                gtfs_feeds: (&formatted_gtfs_feeds).clone(),
+                netex_feeds: (&formatted_netex_feeds).clone(),
             },
         )
         .unwrap();
@@ -79,7 +86,8 @@ fn main() {
         .render(
             &mut html,
             &Feeds::<FormattedFeed> {
-                feeds: (&formatted_feeds).clone(),
+                gtfs_feeds: (&formatted_gtfs_feeds).clone(),
+                netex_feeds: (&formatted_netex_feeds).clone(),
             },
         )
         .unwrap();

@@ -4,10 +4,10 @@
   <title>European transport feeds</title>
   <meta name="keywords" content="public,transport,europe,gtfs,feed,transportation,netex,ifopt">
   <meta name="author" content="Julius Tens">
-  <meta name="description" content="List of european public transport GTFS feeds.">
+  <meta name="description" content="List of european public transport feeds (GTFS, NeTEx).">
   <meta property="og:title" content="European transport feeds">
   <meta property="og:url" content="https://eu.data.public-transport.earth/">
-  <meta property="og:description" content="List of european public transport GTFS feeds.">
+  <meta property="og:description" content="List of european public transport feeds (GTFS, NeTEx).">
   <!-- <link rel="icon" href="icon.png"> -->
   <!-- <meta property="og:image" content="large-image.png" /> -->
 
@@ -48,25 +48,57 @@
             <th>Country</th>
             <th>Provider/Attribution</th>
             <th>License</th>
-            <th>Comment</th>
-            <th>Original feed url</th>
-            <th>Stable feed url</th>
+            <th>Original url</th>
+            <th>Stable url</th>
+            <th>Comments</th>
           </tr>
         </thead>
         <tbody>
-          {{#feeds}}
+          {{#gtfsFeeds}}
           <tr>
             <td>{{countryFlag}} {{countryName}}</td>
             <td><a href="{{infoUrl}}">{{attribution}}</a></td>
             <td>{{{license}}}</td>
-            <td>{{{comment}}}</td>
-            <td><a href="{{feedUrl}}">original url</a></td>
-            <td><a href="https://eu.data.public-transport.earth/gtfs-{{countryIso}}.zip">stable url</a></td>
+            <td><a href="{{feedUrl}}" title="original URL">feed</a></td>
+            <td><a href="https://eu.data.public-transport.earth/gtfs/{{countryIso}}" title="stable URL">feed*</a></td>
+            <td>{{{comments}}}</td>
           </tr>
-          {{/feeds}}
+          {{/gtfsFeeds}}
         </tbody>
       </table>
     </div>
+    <p><i>*When using stable URLs, please make sure to copy directly from this table, e.g. by right-clicking and selecting "copy link address".</i></p>
+  </section>
+  <section id="netex-feeds">
+    <h3>NETEX feeds</h3>
+    <p>EU relulations require data to be relased in the <a href="http://netex-cen.eu/">NeTEx</a> format. GTFS is the more widely adopted standard, and should probably be given preference, if possible. Some countries only release NeTEx feeds, however. Furthermore, some NeTEx feeds include more information than the corresponding GTFS feeds. Also note that the NeTEx standard is relatively complex and broad, so countries use different subsets (<em>profiles</em>) of the standard.</p>
+    <div class="has-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Provider/Attribution</th>
+            <th>License</th>
+            <th>Original url</th>
+            <th>Stable url</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#netexFeeds}}
+          <tr>
+            <td>{{countryFlag}} {{countryName}}</td>
+            <td><a href="{{infoUrl}}">{{attribution}}</a></td>
+            <td>{{{license}}}</td>
+            <td><a href="{{feedUrl}}" title="original URL">feed</a></td>
+            <td><a href="https://eu.data.public-transport.earth/netex/{{countryIso}}" title="stable URL">feed*</a></td>
+            <td>{{{comments}}}</td>
+          </tr>
+          {{/netexFeeds}}
+        </tbody>
+      </table>
+    </div>
+    <p><i>*When using stable URLs, please make sure to copy directly from this table, e.g. by right-clicking and selecting "copy link address".</i></p>
   </section>
   <section id="additional-information">
     <h3>Additional information</h3>

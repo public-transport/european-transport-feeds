@@ -11,7 +11,11 @@ server {
     index index.html;
   }
 
-  {{#feeds}}
-  rewrite /gtfs-{{countryIso}}.zip {{feedUrl}} redirect;
-  {{/feeds}}
+  {{#gtfsFeeds}}
+  rewrite /gtfs/{{countryIso}} {{feedUrl}} redirect;
+  {{/gtfsFeeds}}
+
+  {{#netexFeeds}}
+  rewrite /netex/{{countryIso}} {{feedUrl}} redirect;
+  {{/netexFeeds}}
 }
