@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: european-transport-feeds-ingress
@@ -15,6 +15,10 @@ spec:
   - host: eu.data.public-transport.earth
     http:
       paths:
-      - backend:
-          serviceName: european-transport-feeds
-          servicePort: 80
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: european-transport-feeds
+            port:
+              number: 80
