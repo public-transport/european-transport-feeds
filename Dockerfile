@@ -25,3 +25,5 @@ WORKDIR /app
 
 COPY --from=build /app/generate/output/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/generate/output/index.html ./index.html
+COPY --from=build /app/generate/output/gtfs.map.svg ./gtfs.map.svg
+COPY --from=build /app/generate/output/netex.map.svg ./netex.map.svg

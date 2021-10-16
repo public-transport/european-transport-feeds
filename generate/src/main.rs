@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 use std::fs;
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -59,9 +60,11 @@ fn main() {
 
     let nginx_conf_template_raw = fs::read_to_string("./templates/nginx.conf.mustache").unwrap();
     let html_template_raw = fs::read_to_string("./templates/index.html.mustache").unwrap();
+    let map_template_raw = fs::read_to_string("./templates/map.svg.mustache").unwrap();
 
     let nginx_conf_template = mustache::compile_str(&nginx_conf_template_raw).unwrap();
     let html_template = mustache::compile_str(&html_template_raw).unwrap();
+    let map_template = mustache::compile_str(&map_template_raw).unwrap();
 
     fs::create_dir_all("./output").unwrap();
 
@@ -104,5 +107,21 @@ fn main() {
                 netex_feeds: (&formatted_netex_feeds).clone(),
             },
         )
+        .unwrap();
+
+    let gtfs_countries: HashMap<String, bool> = (&formatted_gtfs_feeds)
+        .iter()
+        .map(|feed| ((&feed).country_iso.to_lowercase().clone(), true))
+        .collect();
+    let mut gtfs_map = fs::File::create("./output/gtfs.map.svg").unwrap();
+    map_template.render(&mut gtfs_map, &gtfs_countries).unwrap();
+
+    let netex_countries: HashMap<String, bool> = (&formatted_netex_feeds)
+        .iter()
+        .map(|feed| ((&feed).country_iso.to_lowercase().clone(), true))
+        .collect();
+    let mut netex_map = fs::File::create("./output/netex.map.svg").unwrap();
+    map_template
+        .render(&mut netex_map, &netex_countries)
         .unwrap();
 }
