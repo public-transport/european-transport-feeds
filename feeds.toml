@@ -40,6 +40,15 @@
   attribution = "Transport for Ireland"
   feedUrl = "https://www.transportforireland.ie/transitData/google_transit_combined.zip"
   infoUrl = "https://www.transportforireland.ie/transitData/PT_Data.html"
+  
+ [[gtfsFeeds]]
+  countryIso = "is"
+  attribution = "Strætó"
+  feedUrl = "http://opendata.straeto.is/data/gtfs/gtfs.zip"
+  infoUrl = "https://straeto.is/um-straeto/opin-rafraen-gogn"
+  comments = """
+  Long-distance coach timetable information.
+  """
 
 [[gtfsFeeds]]
   countryIso = "lt"
