@@ -60,6 +60,12 @@
   attribution = "Entur"
   feedUrl = "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_norway-aggregated-gtfs.zip"
   infoUrl = "https://developer.entur.org/stops-and-timetable-data"
+  
+ [[gtfsFeeds]]
+  countryIso = "rs"
+  attribution = "Navitia"
+  feedUrl = "https://navitia.opendatasoft.com/explore/dataset/rs/files/2ce98e1ed157834ab86f1e2f48dc4fac/download/"
+  infoUrl = "https://navitia.opendatasoft.com/explore/dataset/rs/information/"
 
 [[netexFeeds]]
   countryIso = "de"
