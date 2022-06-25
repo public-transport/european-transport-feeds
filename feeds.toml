@@ -43,6 +43,24 @@
 
 [[gtfsFeeds]]
   countryIso = "lt"
+  attribution = "VSIA Autotransporta direkcija"
+  feedUrl = "https://www.pv.lv/xml/atdtransit/GTFS.zip"
+  infoUrl = "https://data.gov.lv/dati/eng/dataset/iekszemes-dzelzcela-vilcienu-kustibas-saraksts-gtfs-formata"
+  comments = """
+  Domestic rail train timetable.
+  """
+  
+  [gtfsFeeds]]
+  countryIso = "lt"
+  attribution = "VSIA Autotransporta direkcija"
+  feedUrl = "https://www.atd.lv/sites/default/files/GTFS/gtfs-latvia-lv.zip"
+  infoUrl = "https://data.gov.lv/dati/eng/dataset/atd-gtfs"
+  comments = """
+  Bus timetable on intercity and local routes.
+  """
+  
+  [[gtfsFeeds]]
+  countryIso = "lv"
   attribution = "visimarsrutai.lt"
   feedUrl = "https://www.visimarsrutai.lt/gtfs/gtfs_all.zip"
   infoUrl = "https://www.visimarsrutai.lt/gtfs/"
