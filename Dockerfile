@@ -19,11 +19,15 @@ RUN cd generate && cargo run
 
 # ---
 
-FROM nginx:alpine
+FROM nginx:alpine AS website
 
 WORKDIR /app
 
-COPY --from=build /app/generate/output/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/generate/output/index.html ./index.html
 COPY --from=build /app/generate/output/gtfs.map.svg ./gtfs.map.svg
 COPY --from=build /app/generate/output/netex.map.svg ./netex.map.svg
+
+FROM nginx:alpine AS data
+
+COPY --from=build /app/generate/output/nginx.conf /etc/nginx/conf.d/default.conf

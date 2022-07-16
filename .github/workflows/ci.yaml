@@ -34,10 +34,19 @@ jobs:
     - name: Fetch current date and time
       id: datetime
       run: echo "::set-output name=datetime::$(date -u +'%Y-%m-%dT%H.%M.%SZ')"
-    - name: Build and push
+    - name: Build and push website container
       uses: docker/build-push-action@v3
       with:
+        target: website
         push: true
-        tags: ghcr.io/${{github.repository}}:v1_${{steps.hash.outputs.hash}}_${{steps.datetime.outputs.datetime}}
+        tags: ghcr.io/${{github.repository}}-website:v1_${{steps.hash.outputs.hash}}_${{steps.datetime.outputs.datetime}}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+    - name: Build and push data container
+      uses: docker/build-push-action@v3
+      with:
+        target: data
+        push: true
+        tags: ghcr.io/${{github.repository}}-data:v1_${{steps.hash.outputs.hash}}_${{steps.datetime.outputs.datetime}}
         cache-from: type=gha
         cache-to: type=gha,mode=max
