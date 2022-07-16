@@ -30,7 +30,7 @@
 [[gtfsFeeds]]
   countryIso = "fi"
   license = "CC-BY 4.0"
-  attribution = "matka.fi"
+  attribution = "Traficom"
   feedUrl = "http://185.134.88.185/gtfs.zip"
   infoUrl = "https://developer.matka.fi/pages/en/home.php"
 
