@@ -41,11 +41,14 @@
   feedUrl = "https://www.transportforireland.ie/transitData/google_transit_combined.zip"
   infoUrl = "https://www.transportforireland.ie/transitData/PT_Data.html"
   
- [[gtfsFeeds]]
- countryIso = "il"
- attribution = "National Authority for Public Transport"
- feedUrl = " ftp://gtfs.mot.gov.il/israel-public-transportation.zip"
- infoUrl = "https://www.gov.il/he/Departments/General/gtfs_general_transit_feed_specifications"
+[[gtfsFeeds]]
+  countryIso = "il"
+  attribution = "National Authority for Public Transport"
+  feedUrl = "https://scraped.data.public-transport.earth/il/gtfs.zip"
+  infoUrl = "https://www.gov.il/BlobFolder/generalpage/gtfs_general_transit_feed_specifications/he/GTFS_Developer_Information_2021.08.03.pdf"
+  comments = """
+  The official feed is only available via FTP, so the download URL points to a community mirror, which doesn't have any official SLAs. Also note that Israel is included in this list despite being located in Asia, because there isn't any similar document for Asian countries just yet.
+  """
 
 [[gtfsFeeds]]
   countryIso = "lt"
