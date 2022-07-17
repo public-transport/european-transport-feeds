@@ -12,6 +12,15 @@
 # comments (optional) - additional comments, e.g. regarding the coverage of a feed ("only covers ~95% of all transport")
 
 [[gtfsFeeds]]
+  countryIso = "ch"
+  attribution = "opentransportdata.swiss"
+  feedUrl = "https://gtfs.geops.ch/dl/gtfs_complete.zip"
+  infoUrl = "https://gtfs.geops.ch/#feeds"
+  comments = """
+  The official feed doesn't have a stable URL, this alternative is provided by <i>GEOPS</i> and derived from the latest official dataset.
+  """
+
+[[gtfsFeeds]]
   countryIso = "de"
   license = "CC-BY 4.0"
   attribution = "DELFI/opendata-oepnv.de"
