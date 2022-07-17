@@ -40,7 +40,7 @@
   attribution = "Transport for Ireland"
   feedUrl = "https://www.transportforireland.ie/transitData/google_transit_combined.zip"
   infoUrl = "https://www.transportforireland.ie/transitData/PT_Data.html"
-  
+
 [[gtfsFeeds]]
   countryIso = "il"
   attribution = "National Authority for Public Transport"
@@ -55,6 +55,15 @@
   attribution = "visimarsrutai.lt"
   feedUrl = "https://www.visimarsrutai.lt/gtfs/gtfs_all.zip"
   infoUrl = "https://www.visimarsrutai.lt/gtfs/"
+
+[[gtfsFeeds]]
+  countryIso = "lu"
+  attribution = "Administration des transports publics"
+  feedUrl = "https://scraped.data.public-transport.earth/lu/gtfs.zip"
+  infoUrl = "https://data.public.lu/en/datasets/horaires-et-arrets-des-transport-publics-gtfs/"
+  comments = """
+  The official feed doesn't have a stable URL, so the download URL points to a community mirror, which doesn't have any official SLAs.
+  """
 
 [[gtfsFeeds]]
   countryIso = "nl"
