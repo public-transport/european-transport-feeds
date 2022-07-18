@@ -31,6 +31,12 @@
   """
 
 [[gtfsFeeds]]
+  countryIso = "dk"
+  attribution = "Rejseplanen Labs"
+  feedUrl = "https://www.rejseplanen.info/labs/GTFS.zip"
+  infoUrl = "https://help.rejseplanen.dk/hc/en-us/categories/201728005-Labs"
+
+[[gtfsFeeds]]
   countryIso = "ee"
   attribution = "Transpordiamet"
   feedUrl = "https://peatus.ee/gtfs/gtfs.zip"
