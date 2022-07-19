@@ -94,6 +94,16 @@
   feedUrl = "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_norway-aggregated-gtfs.zip"
   infoUrl = "https://developer.entur.org/stops-and-timetable-data"
 
+[[gtfsFeeds]]
+  countryIso = "se"
+  license = "CC0 1.0"
+  attribution = "Trafiklab"
+  feedUrl = "https://scraped.data.public-transport.earth/se/gtfs.zip"
+  infoUrl = "https://www.trafiklab.se/api/trafiklab-apis/gtfs-sverige-2/"
+  comments = """
+  The official feed requires an API key, so the download URL points to a community mirror, which doesn't have any official SLAs.
+  """
+
 [[netexFeeds]]
   countryIso = "de"
   license = "CC-BY 4.0"
