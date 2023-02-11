@@ -46,7 +46,7 @@
   countryIso = "fi"
   license = "CC-BY 4.0"
   attribution = "Traficom"
-  feedUrl = "http://185.134.88.185/gtfs.zip"
+  feedUrl = "https://traffic.navici.com/tiedostot/gtfs.zip"
   infoUrl = "https://developer.matka.fi/pages/en/home.php"
 
 [[gtfsFeeds]]
