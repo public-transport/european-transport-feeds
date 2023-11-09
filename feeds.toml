@@ -59,10 +59,10 @@
 [[gtfsFeeds]]
   countryIso = "il"
   attribution = "National Authority for Public Transport"
-  feedUrl = "https://scraped.data.public-transport.earth/il/gtfs.zip"
-  infoUrl = "https://www.gov.il/BlobFolder/generalpage/gtfs_general_transit_feed_specifications/he/GTFS_Developer_Information_2021.08.03.pdf"
+  feedUrl = "https://gtfs.mot.gov.il/gtfsfiles/israel-public-transportation.zip"
+  infoUrl = "https://www.gov.il/BlobFolder/generalpage/gtfs_general_transit_feed_specifications/he/GTFS_Developer_Information_2022.07.27.pdf"
   comments = """
-  The official feed is only available via FTP, so the download URL points to a community mirror, which doesn't have any official SLAs. Also note that Israel is included in this list despite being located in Asia, because there isn't any similar document for Asian countries just yet.
+  Note that Israel is included in this list despite being located in Asia, because there isn't any similar document for Asian countries just yet.
   """
 
 [[gtfsFeeds]]
