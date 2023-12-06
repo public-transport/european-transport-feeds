@@ -11,6 +11,12 @@
 # infoUrl (required) - url that provides additional information about the feed, usually the website "feedUrl" was taken from
 # comments (optional) - additional comments, e.g. regarding the coverage of a feed ("only covers ~95% of all transport")
 
+ [[gtfsFeeds]]
+  countryIso = "be"
+  attribution = "Navitia"
+  feedUrl = "https://navitia.opendatasoft.com/explore/dataset/be/files/42a0f2d4007f38ff35c5188d499d8a77/download/"
+  infoUrl = "https://navitia.opendatasoft.com/explore/dataset/be/information/"
+
 [[gtfsFeeds]]
   countryIso = "ch"
   attribution = "opentransportdata.swiss"
@@ -29,6 +35,11 @@
   comments = """
   Unfortunately, this feed only covers ~75% of all public transportation (as of 4/2020), mainly because some regional providers are still not included. If this is insufficient for you, consider using the german NETEX feed, which has a higher coverage, or manually combine <a href="https://gtfs.mfdz.de/">available regional feeds</a>. Furthermore, the official feed is hidden behind a login form, so the download URL points to a community mirror, which doesn't have any official SLAs.
   """
+[[gtfsFeeds]]
+  countryIso = "dk"
+  attribution = "Navitia"
+  feedUrl = "https://navitia.opendatasoft.com/explore/dataset/dk/files/cd101cb21930a2b26531eaa99b48b606/download/"
+  infoUrl = "https://navitia.opendatasoft.com/explore/dataset/dk/information/"
 
 [[gtfsFeeds]]
   countryIso = "dk"
@@ -48,6 +59,21 @@
   attribution = "Traficom"
   feedUrl = "https://traffic.navici.com/tiedostot/gtfs.zip"
   infoUrl = "https://developer.matka.fi/pages/en/home.php"
+  
+ [[gtfsFeeds]]
+  countryIso = "hr"
+  attribution = "Transpordiamet"
+  feedUrl = "https://peatus.ee/gtfs/gtfs.zip"
+  infoUrl = "https://data.europa.eu/data/datasets/vozni-red-h-putni-kog-prijevoza-u-gtfs-obliku"
+  comments = """
+  Passenger trains of Croatia.
+  """
+  
+ [[gtfsFeeds]]
+  countryIso = "hu"
+  attribution = "Navitia"
+  feedUrl = "https://navitia.opendatasoft.com/explore/dataset/hu/files/a0aabfc65e9161c3c9870977ae4fbc05/download/"
+  infoUrl = "https://navitia.opendatasoft.com/explore/dataset/hu/information/"
 
 [[gtfsFeeds]]
   countryIso = "ie"
@@ -93,6 +119,12 @@
   attribution = "Entur"
   feedUrl = "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_norway-aggregated-gtfs.zip"
   infoUrl = "https://developer.entur.org/stops-and-timetable-data"
+  
+ [[gtfsFeeds]]
+  countryIso = "pl"
+  attribution = "Navitia"
+  feedUrl = "https://navitia.opendatasoft.com/explore/dataset/pl/files/e95d7613de79a01387c076e2b7f24df2/download/"
+  infoUrl = "https://navitia.opendatasoft.com/explore/dataset/pl/information/"
 
 [[gtfsFeeds]]
   countryIso = "se"
